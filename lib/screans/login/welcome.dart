@@ -1,5 +1,5 @@
-import 'dart:collection';
-import 'dart:io';
+//import 'dart:collection';
+//import 'dart:io';
 
 import 'package:flutter/material.dart';
 import '../../screans/login/login.dart';
@@ -104,16 +104,10 @@ class Welcome extends StatelessWidget {
                                               builder: (context) => Login()));
                                     },
                                     child: Text("войти",
-                                      style: TextStyle(fontSize: 18,
-                                        color: Colors.white70,
-                                      ),
-                                    ),
-                                    style: TextButton.styleFrom(
-                                      backgroundColor: Color.fromRGBO(0,21,170, 1),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                      ),
-                                    )
+                                       style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                        )),
                                 ),
                               ),
                             )
@@ -127,18 +121,7 @@ class Welcome extends StatelessWidget {
                                    onPressed: () {
 
                                    },
-                                   child: Text('зарегистрироваться',
-                                     style: TextStyle(fontSize: 18,
-                                       color: Color.fromRGBO(0,21,170, 1),
-                                     ),
-                                   ),
-                                   style: OutlinedButton.styleFrom(
-                                     side: BorderSide(width: 3, color: Color.fromRGBO(0,21,170, 1)),
-                                     //backgroundColor: Colors.lightBlueAccent,
-                                     shape: RoundedRectangleBorder(
-                                       borderRadius: BorderRadius.circular(10.0),
-                                     ),
-                                   ),
+                                   child: Text('зарегистрироваться',),
                                  ),
                                )
                            ),

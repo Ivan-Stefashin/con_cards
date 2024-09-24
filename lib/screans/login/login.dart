@@ -9,7 +9,31 @@ class Login extends StatelessWidget {
       appBar: AppBar(
         title: Text('ConCards'),
       ),
-    body: Center(),
+    body: Center(
+      child: Container(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  Text("Приветствую"),
+                  Text("Войдите чтобы продолжить"),
+                ],
+              ),
+            ),
+            Expanded(
+                child: Column(
+                  children: [
+                    TextField(),
+                    TextField(),
+                  ],
+                ),
+            ),
+          ],
+        ),
+      ),
+    ),
     );
   }
 }
