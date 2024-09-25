@@ -1,8 +1,9 @@
 //import 'dart:collection';
 //import 'dart:io';
 
+import 'package:con_cards/screens/login/signUp.dart';
 import 'package:flutter/material.dart';
-import '../../screans/login/login.dart';
+import 'package:con_cards/screens/login/logIn.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -57,17 +58,17 @@ class Welcome extends StatelessWidget {
                       child:
                           Column(
                             children: [
-                              Text('Привет !',
+                              Text('Приветствуем !',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.black,
-                                fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.w500,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600,
+                                //fontStyle: FontStyle.italic,
+                                color: Color.fromRGBO(0, 10, 57, 1.0),
                               ),
                               ),
                               Text('Благодарим за доверие нам.'
-                                  '\nConCards - удобное приложение для всех твоих банковских карт!',
+                                  '\nConCards - удобное приложение для всех ваших банковских карт!',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 15,
@@ -83,19 +84,13 @@ class Welcome extends StatelessWidget {
               ),
               Expanded(
                 flex: 2,
-                  child: Container(
-                    //color: Colors.yellow,
+                  //child: Container(
                     child: Column(
                       children: [
                         Expanded(
                             child: Center(
-                              child: Container(
-                                //margin: EdgeInsets.all(10),
-                                width: double.infinity,//MediaQuery.of(context).size.width * 0.65,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    //color: Color.fromRGBO(0, 0, 139, 100),
-                                ),
+                              child: SizedBox(
+                                width: double.infinity,
                                 child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -114,14 +109,21 @@ class Welcome extends StatelessWidget {
                         ),
                          Expanded(
                            child: Center(
-                               child: Container(
-                                 //margin: EdgeInsets.all(12),
+                               child: SizedBox(
                                  width: double.infinity,
                                  child: OutlinedButton(
                                    onPressed: () {
-
+                                     Navigator.push(
+                                         context,
+                                         MaterialPageRoute(
+                                             builder: (context) => Signup()));
                                    },
-                                   child: Text('зарегистрироваться',),
+                                   child: Text('зарегистрироваться',
+                                   style: TextStyle(
+                                     fontSize: 18,
+                                     color: Color.fromRGBO(0,21,170, 1),
+                                   ),
+                                   ),
                                  ),
                                )
                            ),
@@ -129,7 +131,7 @@ class Welcome extends StatelessWidget {
                       ],
                     ),
                   ),
-              )
+              //),
             ],
           ),
         )

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../screans/login/welcome.dart';
+import 'package:con_cards/screens/login/welcome.dart';
 
 void main() {
   runApp(
@@ -7,8 +7,7 @@ void main() {
         title: 'Flutter Demo',
 
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(
-              0, 32, 255, 1.0)),
+          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
           useMaterial3: true,
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
