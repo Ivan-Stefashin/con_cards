@@ -1,3 +1,4 @@
+import 'package:con_cards/screens/homePage.dart';
 import 'package:con_cards/screens/login/signUp.dart';
 import 'package:con_cards/screens/login/welcome.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +20,12 @@ class Login extends StatelessWidget {
           ),
       ),
     body: Center(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
         height: MediaQuery.of(context).size.height * 0.87,
         child: Column(
           children: [
             Expanded(
-              //flex: 1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,20 +47,15 @@ class Login extends StatelessWidget {
               ),
             ),
             Expanded(
-              //flex: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TextField(),
-                    // SizedBox(
-                    //   height: 50,
-                    // ),
                     TextField(),
                   ],
                 ),
             ),
             Expanded(
-              //flex: 1,
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +64,10 @@ class Login extends StatelessWidget {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: (){
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()));
                         },
                         child: Text('войти',
                           style: TextStyle(
@@ -104,22 +102,23 @@ class Login extends StatelessWidget {
       ),
     ),
       bottomNavigationBar: Container(
-        //alignment: Alignment.bottomCenter,
-        child: Row(
-          children: [
-            Text('Не создавали аккаунт?',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey,
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.only(left: 15),
+          child: Row(
+            children: [
+              Text('Не создавали аккаунт?',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
               ),
-            ),
-            TextButton(onPressed: (){
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Signup()));
-            },
+              TextButton(onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Signup()));
+              },
                 child: Text('Зарегистрироваться',
                   style: TextStyle(
                     fontSize: 14,
@@ -127,12 +126,12 @@ class Login extends StatelessWidget {
                     color: Color.fromRGBO(0,21,170, 1),
                   ),
                 ),
-              style: TextButton.styleFrom(
-                backgroundColor: Color(0),
+                style: TextButton.styleFrom(
+                  backgroundColor: Color(0),
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
       ),
     );
   }

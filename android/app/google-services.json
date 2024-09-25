@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380537632209",
+    "project_id": "concards-c00bc",
+    "storage_bucket": "concards-c00bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380537632209:android:4cb04755068e89f4fc1cf0",
+        "android_client_info": {
+          "package_name": "com.example.con_cards"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBks-ZnckXfvAfC7RBmPk6hjAExiAySC2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

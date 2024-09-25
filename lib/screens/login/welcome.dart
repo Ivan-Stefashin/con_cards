@@ -1,6 +1,3 @@
-//import 'dart:collection';
-//import 'dart:io';
-
 import 'package:con_cards/screens/login/signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:con_cards/screens/login/logIn.dart';
@@ -11,17 +8,14 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Здравствуйте, давайте знакомиться!',
-      //                     style: TextStyle(fontSize: 40)),
-      // ),
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.87,
           child: Column(
             children: [
               Expanded(
+                flex: 1,
                 child: Container(
                   alignment: Alignment.centerLeft,
                   //color: Colors.blue,
@@ -42,96 +36,88 @@ class Welcome extends StatelessWidget {
                     ],
                   ),
                 ),
-                flex: 1,
               ),
               Expanded(
-                  child: Container(
-                    //color: Colors.red,
-                    child: Image.asset('assets/images/man_with_laptop.png',),
-                  ),
-                  flex: 5,
-              ),
-              Expanded(
-                  child: Container(
-                    //color: Colors.orange,
-                    child: Center(
-                      child:
-                          Column(
-                            children: [
-                              Text('Приветствуем !',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w600,
-                                //fontStyle: FontStyle.italic,
-                                color: Color.fromRGBO(0, 10, 57, 1.0),
-                              ),
-                              ),
-                              Text('Благодарим за доверие нам.'
-                                  '\nConCards - удобное приложение для всех ваших банковских карт!',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
-                    )
-                  ),
-                  flex: 2
+                flex: 5,
+                child: Container(
+                  child: Image.asset('assets/images/man_with_laptop.png',),
+                ),
               ),
               Expanded(
                 flex: 2,
-                  //child: Container(
-                    child: Column(
-                      children: [
-                        Expanded(
-                            child: Center(
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Login()));
-                                    },
-                                    child: Text("войти",
-                                       style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                        )),
-                                ),
-                              ),
-                            )
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text('Приветствуем !',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        //fontStyle: FontStyle.italic,
+                        color: Color.fromRGBO(0, 10, 57, 1.0),
+                      ),
+                      ),
+                      Text('Благодарим за доверие нам.'
+                          '\nConCards - удобное приложение для всех ваших банковских карт!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.grey,
+                            fontWeight: FontWeight.bold,
                         ),
-                         Expanded(
-                           child: Center(
-                               child: SizedBox(
-                                 width: double.infinity,
-                                 child: OutlinedButton(
-                                   onPressed: () {
-                                     Navigator.push(
-                                         context,
-                                         MaterialPageRoute(
-                                             builder: (context) => Signup()));
-                                   },
-                                   child: Text('зарегистрироваться',
-                                   style: TextStyle(
-                                     fontSize: 18,
-                                     color: Color.fromRGBO(0,21,170, 1),
-                                   ),
-                                   ),
-                                 ),
-                               )
-                           ),
-                         ),
-                      ],
-                    ),
+                      )
+                    ],
                   ),
-              //),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Expanded(
+                        child: Center(
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Login()));
+                                },
+                                child: Text("войти",
+                                   style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    )),
+                            ),
+                          ),
+                        )
+                    ),
+                     Expanded(
+                       child: Center(
+                           child: SizedBox(
+                             width: double.infinity,
+                             child: OutlinedButton(
+                               onPressed: () {
+                                 Navigator.push(
+                                     context,
+                                     MaterialPageRoute(
+                                         builder: (context) => Signup()));
+                               },
+                               child: Text('зарегистрироваться',
+                               style: TextStyle(
+                                 fontSize: 18,
+                                 color: Color.fromRGBO(0,21,170, 1),
+                               ),
+                               ),
+                             ),
+                           )
+                       ),
+                     ),
+                  ],
+                ),
+              ),
             ],
           ),
         )

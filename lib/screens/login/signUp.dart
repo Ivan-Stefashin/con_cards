@@ -1,3 +1,4 @@
+import 'package:con_cards/screens/homePage.dart';
 import 'package:con_cards/screens/login/logIn.dart';
 import 'package:con_cards/screens/login/welcome.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,6 @@ class Signup extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                //flex: 1,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -47,7 +47,6 @@ class Signup extends StatelessWidget {
                 ),
               ),
               Expanded(
-                //flex: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -58,13 +57,15 @@ class Signup extends StatelessWidget {
                 ),
               ),
               Expanded(
-                //flex: 1,
                 child: Center(
                   child: SizedBox(
                     width: double.infinity,
                     child: TextButton(
                       onPressed: (){
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()));
                       },
                       child: Text('зарегистрироваться',
                         style: TextStyle(
@@ -81,7 +82,8 @@ class Signup extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        //alignment: Alignment.bottomCenter,
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.only(left: 15),
         child: Row(
           children: [
             Text('Уже есть аккаунт?',
