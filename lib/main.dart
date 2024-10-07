@@ -1,53 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:con_cards/screens/login/welcome.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-void initFirebase() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-}
 
 void main() {
-  initFirebase();
-  runApp(
-      MaterialApp(
-        title: 'Flutter Demo',
-
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
-          useMaterial3: true,
-          textButtonTheme: TextButtonThemeData(
-            style: ButtonStyle(
-              backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(0,21,170, 1)),
-              shape:WidgetStatePropertyAll(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              ),
-              textStyle: WidgetStatePropertyAll(
-                  TextStyle(
-                    fontSize: 18,
-                    color: Color.fromRGBO(15, 16, 21, 1.0),
-                  ),
-              ),
+  runApp(MaterialApp(
+    theme: ThemeData(
+      colorScheme:
+          ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
+      useMaterial3: true,
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor:
+              WidgetStatePropertyAll(Color.fromRGBO(0, 21, 170, 1)),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
             ),
           ),
-          outlinedButtonTheme: OutlinedButtonThemeData(
-            style: OutlinedButton.styleFrom(
-              side: BorderSide(width: 3, color: Color.fromRGBO(0,21,170, 1)),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              textStyle: TextStyle(
-                fontSize: 18,
-                color: Color.fromRGBO(0,21,170, 1),
-              ),
+          textStyle: WidgetStatePropertyAll(
+            TextStyle(
+              fontSize: 18,
+              color: Color.fromRGBO(15, 16, 21, 1.0),
             ),
           ),
         ),
-        home: const Welcome(),
-      )
-  );
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(width: 3, color: Color.fromRGBO(0, 21, 170, 1)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          textStyle: TextStyle(
+            fontSize: 18,
+            color: Color.fromRGBO(0, 21, 170, 1),
+          ),
+        ),
+      ),
+    ),
+    home: const Welcome(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

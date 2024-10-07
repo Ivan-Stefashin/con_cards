@@ -7,6 +7,7 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final ThemeData theme = Theme.of(context).textButtonTheme.style.textStyle;
     return Scaffold(
       body: Center(
         child: SizedBox(
@@ -28,8 +29,8 @@ class Welcome extends StatelessWidget {
                       Text('ConCards',
                           style: TextStyle(
                             fontSize: 25,
-                            fontWeight: FontWeight.w500, //толщина линий
-                            fontStyle: FontStyle.italic, //наклон
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.italic,
                             color: Color.fromRGBO(80, 80, 80, 1)
                           )
                       ),
@@ -87,9 +88,10 @@ class Welcome extends StatelessWidget {
                                 },
                                 child: Text("войти",
                                    style: TextStyle(
-                                      fontSize: 18,
+                                      //fontSize: 18,
                                       color: Colors.white,
-                                    )),
+                                    ),
+                                ),
                             ),
                           ),
                         )

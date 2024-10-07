@@ -80,7 +80,7 @@ class Login extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(onPressed: (){
-                        Navigator.pop(context);
+                        //Navigator.pop(context);
                       },
                           child: Text('забыли пароль?',
                           style: TextStyle(
