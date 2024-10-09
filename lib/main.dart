@@ -1,8 +1,20 @@
+import 'package:con_cards/screens/homePage.dart';
+import 'package:con_cards/screens/login/login1.dart';
+import 'package:con_cards/screens/login/signUp.dart';
+import 'package:con_cards/services/firebaseStream.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:con_cards/screens/login/welcome.dart';
 
+void initFirebase() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+}
+
 void main() {
+  initFirebase();
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       colorScheme:
           ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
@@ -37,7 +49,15 @@ void main() {
         ),
       ),
     ),
-    home: const Welcome(),
+    routes: {
+      '/': (context) => const FireBaseStream(),
+      '/home': (context) => const HomePage(),
+      '/login': (context) => const LoginScreen(),
+      '/signup': (context) => const Signup(),
+      '/welcome': (context) => const Welcome(),
+    },
+    initialRoute: '/welcome',
+    //home: const Welcome(),
   ));
 }
 
