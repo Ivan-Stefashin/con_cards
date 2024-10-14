@@ -1,3 +1,4 @@
+import 'package:con_cards/generated/l10n.dart';
 import 'package:con_cards/screens/homePage.dart';
 import 'package:con_cards/screens/login/login1.dart';
 import 'package:con_cards/screens/login/signUp.dart';
@@ -57,12 +58,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       print(e.code);
 
       if (e.code == 'email-already-in-use') {
-        SnackbarService.showSnackBar(
-            context, 'Пользователь с таким Email уже зарегистрирован', true);
+        SnackbarService.showSnackBar(context,
+            S.of(context).theUserWithThisEmailHasAlreadyBeenRegistered, true);
         return;
       } else {
         SnackbarService.showSnackBar(
-            context, 'Неизвестная ошибка попробуйте ещё раз.', true);
+            context, S.of(context).snackBarErrorMessageUnknownError, true);
         return;
       }
     }
@@ -89,13 +90,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             height: MediaQuery.of(context).size.height * 0.87,
             child: Column(
               children: [
-                const Expanded(
+                Expanded(
                   flex: 1,
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Здравствуйте !",
+                        S.of(context).signUpHello,
                         style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.w600,
@@ -103,7 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       Text(
-                        "Создайте новый аккаунт",
+                        S.of(context).signUpCreateNewAccount,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
@@ -122,21 +123,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         autocorrect: false,
                         controller: lastNameTextInputController,
                         decoration: InputDecoration(
-                          hintText: 'Фамилия',
+                          hintText: S.of(context).lastName,
                         ),
                       ),
                       TextFormField(
                         autocorrect: false,
                         controller: firstNameTextInputController,
                         decoration: InputDecoration(
-                          hintText: 'Имя',
+                          hintText: S.of(context).firstName,
                         ),
                       ),
                       TextFormField(
                         autocorrect: false,
                         controller: patronymicTextInputController,
                         decoration: InputDecoration(
-                          hintText: 'Отчество',
+                          hintText: S.of(context).patronymic,
                         ),
                       ),
                       TextFormField(
@@ -145,10 +146,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         controller: emailTextInputController,
                         validator: (email) =>
                             email != null && !EmailValidator.validate(email)
-                                ? 'Введите правильный email'
+                                ? S.of(context).enterCorrectEmail
                                 : null,
-                        decoration: const InputDecoration(
-                          hintText: 'Введите email',
+                        decoration: InputDecoration(
+                          hintText: S.of(context).enterEmail,
                         ),
                       ),
                       TextFormField(
@@ -157,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         obscureText: isHiddenPassword,
                         validator: (password) =>
                             password != null && password.length < 6
-                                ? 'Минимум 6 символов'
+                                ? S.of(context).minimumOfSixCharacters
                                 : null,
                         decoration: InputDecoration(
                           suffix: InkWell(
@@ -169,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          hintText: 'Введите пароль',
+                          hintText: S.of(context).enterPassword,
                         ),
                       ),
                     ],
@@ -191,8 +192,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         //       MaterialPageRoute(
                         //           builder: (context) => const HomePage()));
                         // },
-                        child: const Text(
-                          'зарегистрироваться',
+                        child: Text(
+                          S.of(context).registeration,
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,
@@ -212,8 +213,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         margin: const EdgeInsets.only(left: 15),
         child: Row(
           children: [
-            const Text(
-              'Уже есть аккаунт?',
+            Text(
+              S.of(context).alreadyHaveAnAccount,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
@@ -227,8 +228,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     MaterialPageRoute(
                         builder: (context) => const LoginScreen()));
               },
-              child: const Text(
-                'Войти',
+              child: Text(
+                S.of(context).signUpLogIn,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,

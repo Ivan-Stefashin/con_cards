@@ -1,3 +1,4 @@
+import 'package:con_cards/generated/l10n.dart';
 import 'package:con_cards/screens/homePage.dart';
 import 'package:con_cards/screens/login/login1.dart';
 import 'package:con_cards/screens/login/signUp.dart';
@@ -5,6 +6,7 @@ import 'package:con_cards/services/firebaseStream.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:con_cards/screens/login/welcome.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void initFirebase() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,40 +17,48 @@ void main() {
   initFirebase();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    localizationsDelegates: [
+      S.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    supportedLocales: S.delegate.supportedLocales,
+    //locale: Locale('en'),
     theme: ThemeData(
-      colorScheme:
-          ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
-      useMaterial3: true,
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor:
-              WidgetStatePropertyAll(Color.fromRGBO(0, 21, 170, 1)),
-          shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromRGBO(0, 32, 255, 1.0)),
+        useMaterial3: true,
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                WidgetStatePropertyAll(Color.fromRGBO(0, 21, 170, 1)),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
+            textStyle: WidgetStatePropertyAll(
+              TextStyle(
+                fontSize: 18,
+                color: Color.fromRGBO(15, 16, 21, 1.0),
+              ),
+            ),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(width: 3, color: Color.fromRGBO(0, 21, 170, 1)),
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-          ),
-          textStyle: WidgetStatePropertyAll(
-            TextStyle(
+            textStyle: TextStyle(
               fontSize: 18,
-              color: Color.fromRGBO(15, 16, 21, 1.0),
+              color: Color.fromRGBO(0, 21, 170, 1),
             ),
           ),
         ),
-      ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(width: 3, color: Color.fromRGBO(0, 21, 170, 1)),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          textStyle: TextStyle(
-            fontSize: 18,
-            color: Color.fromRGBO(0, 21, 170, 1),
-          ),
-        ),
-      ),
-    ),
+        textTheme: TextTheme()),
     routes: {
       '/': (context) => const FireBaseStream(),
       '/home': (context) => const HomePage(),
@@ -57,7 +67,6 @@ void main() {
       '/welcome': (context) => const Welcome(),
     },
     initialRoute: '/welcome',
-    //home: const Welcome(),
   ));
 }
 
