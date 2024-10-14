@@ -1,3 +1,4 @@
+import 'package:con_cards/generated/l10n.dart';
 import 'package:con_cards/screens/login/login1.dart';
 import 'package:con_cards/screens/login/signUp.dart';
 import 'package:con_cards/screens/login/signUp1.dart';
@@ -32,7 +33,7 @@ class Welcome extends StatelessWidget {
                       height: 50,
                     ),
                   ),
-                  Text('ConCards',
+                  Text(S.of(context).nameOfApp,
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w500,
@@ -56,7 +57,7 @@ class Welcome extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Приветствуем !',
+                    S.of(context).welcomeHello,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
@@ -66,8 +67,7 @@ class Welcome extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Благодарим за доверие нам.'
-                    '\nConCards - удобное приложение для всех ваших банковских карт!',
+                    S.of(context).welcomeMessage,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15,
@@ -95,7 +95,7 @@ class Welcome extends StatelessWidget {
                                 builder: (context) => LoginScreen()));
                       },
                       child: Text(
-                        "войти",
+                        S.of(context).signIn,
                         style: TextStyle(
                           //fontSize: 18,
                           color: Colors.white,
@@ -116,7 +116,7 @@ class Welcome extends StatelessWidget {
                                 builder: (context) => SignUpScreen()));
                       },
                       child: Text(
-                        'зарегистрироваться',
+                        S.of(context).registeration,
                         style: TextStyle(
                           fontSize: 18,
                           color: Color.fromRGBO(0, 21, 170, 1),

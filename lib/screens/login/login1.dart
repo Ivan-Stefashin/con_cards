@@ -1,3 +1,4 @@
+import 'package:con_cards/generated/l10n.dart';
 import 'package:con_cards/screens/login/signUp.dart';
 import 'package:con_cards/screens/login/signUp1.dart';
 import 'package:con_cards/screens/login/welcome.dart';
@@ -50,11 +51,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         SnackbarService.showSnackBar(
-            context, 'Неправильный Email или пароль!', true);
+            context, S.of(context).snackBarErrorMessageWrongEmail, true);
         return;
       } else {
         SnackbarService.showSnackBar(
-            context, 'Неизвестная ошибка попробуйте ещё раз.', true);
+            context, S.of(context).snackBarErrorMessageUnknownError, true);
         return;
       }
     }
@@ -86,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "С возвращением !",
+                        S.of(context).loginWelcomeBack,
                         style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.w600,
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       Text(
-                        "Войдите чтобы продолжить",
+                        S.of(context).logInToContinue,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
@@ -114,10 +115,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: emailTextInputController,
                         validator: (email) =>
                             email != null && !EmailValidator.validate(email)
-                                ? 'Введите правильный email'
+                                ? S.of(context).enterCorrectEmail
                                 : null,
-                        decoration: const InputDecoration(
-                          hintText: 'Введите email',
+                        decoration: InputDecoration(
+                          hintText: S.of(context).enterEmail,
                         ),
                       ),
                       TextFormField(
@@ -126,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         obscureText: isHiddenPassword,
                         validator: (password) =>
                             password != null && password.length < 6
-                                ? 'Минимум 6 символов'
+                                ? S.of(context).minimumOfSixCharacters
                                 : null,
                         decoration: InputDecoration(
                           suffix: InkWell(
@@ -138,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          hintText: 'Введите пароль',
+                          hintText: S.of(context).enterPassword,
                         ),
                       ),
                     ],
@@ -154,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextButton(
                             onPressed: Login,
                             child: Text(
-                              'войти',
+                              S.of(context).signIn,
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -167,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextButton(
                             onPressed: () {},
                             child: Text(
-                              'забыли пароль?',
+                              S.of(context).forgotYourPassword,
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Color.fromRGBO(0, 21, 170, 1),
@@ -193,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Row(
           children: [
             Text(
-              'Не создавали аккаунт?',
+              S.of(context).didnTCreateAnAccount,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
@@ -206,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     MaterialPageRoute(builder: (context) => SignUpScreen()));
               },
               child: Text(
-                'Зарегистрироваться',
+                S.of(context).loginButtomBarRegistration,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
