@@ -289,6 +289,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Главная`
+  String get bottomNavigationBarHome {
+    return Intl.message(
+      'Главная',
+      name: 'bottomNavigationBarHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Профиль`
+  String get bottomNavigatiomBarPerson {
+    return Intl.message(
+      'Профиль',
+      name: 'bottomNavigatiomBarPerson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `История`
+  String get bottomNavigationBarHistory {
+    return Intl.message(
+      'История',
+      name: 'bottomNavigationBarHistory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
