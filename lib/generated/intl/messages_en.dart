@@ -21,5 +21,51 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "bottomNavigatiomBarPerson":
+            MessageLookupByLibrary.simpleMessage("Профиль"),
+        "bottomNavigationBarHistory":
+            MessageLookupByLibrary.simpleMessage("История"),
+        "bottomNavigationBarHome":
+            MessageLookupByLibrary.simpleMessage("Главная"),
+        "didnTCreateAnAccount":
+            MessageLookupByLibrary.simpleMessage("Did not create an account?"),
+        "enterCorrectEmail":
+            MessageLookupByLibrary.simpleMessage("Enter correct email"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("Enter email"),
+        "enterPassword": MessageLookupByLibrary.simpleMessage("Enter password"),
+        "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
+        "forgotYourPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot your password?"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
+        "logInToContinue":
+            MessageLookupByLibrary.simpleMessage("Log in to continue"),
+        "loginButtomBarRegistration":
+            MessageLookupByLibrary.simpleMessage("Registration"),
+        "loginWelcomeBack":
+            MessageLookupByLibrary.simpleMessage("Welcome back!"),
+        "minimumOfSixCharacters":
+            MessageLookupByLibrary.simpleMessage("Minimum of six characters"),
+        "nameOfApp": MessageLookupByLibrary.simpleMessage("ConCards"),
+        "patronymic": MessageLookupByLibrary.simpleMessage("Patronymic"),
+        "registeration": MessageLookupByLibrary.simpleMessage("Registration"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signUpCreateNewAccount":
+            MessageLookupByLibrary.simpleMessage("Create new account"),
+        "signUpHello": MessageLookupByLibrary.simpleMessage("Hello!"),
+        "signUpLogIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "snackBarErrorMessageUnknownError":
+            MessageLookupByLibrary.simpleMessage(
+                "Unknown error, please try again."),
+        "snackBarErrorMessageWrongEmail":
+            MessageLookupByLibrary.simpleMessage("Invalid email or password!"),
+        "theUserWithThisEmailHasAlreadyBeenRegistered":
+            MessageLookupByLibrary.simpleMessage(
+                "The user with this email has already been registered"),
+        "welcomeHello": MessageLookupByLibrary.simpleMessage("Hello!"),
+        "welcomeMessage": MessageLookupByLibrary.simpleMessage(
+            "Thank you for trusting us.\nConCards is a convenient app for all your bank cards!")
+      };
 }
