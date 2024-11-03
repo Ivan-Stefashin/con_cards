@@ -4,13 +4,19 @@ import 'package:con_cards/features/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+  const MyBottomNavigationBar(final pageController, {super.key});
+
+  get pageController => pageController;
 
   @override
-  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
+  State<MyBottomNavigationBar> createState() =>
+      _MyBottomNavigationBarState(pageController);
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  _MyBottomNavigationBarState(final _pageController);
+
+  static get _pageController => _pageController;
   int _currentIndex = 0;
 
   @override
@@ -37,7 +43,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   _openPage(int newIndex) {
     setState(() {
       _currentIndex = newIndex;
-
+      _pageController.jumpToPage(newIndex);
       // if (_currentIndex == 0) {
       //   Navigator.push(context,
       //       MaterialPageRoute(builder: (context) => const HomePageScrean()));
