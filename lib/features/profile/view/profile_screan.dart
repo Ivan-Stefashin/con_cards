@@ -10,7 +10,7 @@ class ProfileScrean extends StatelessWidget {
       body: Center(
         child: Text('Профиль'),
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      //bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("Имя"),
         "forgotYourPassword":
             MessageLookupByLibrary.simpleMessage("забыли пароль?"),
+        "home_page_screan_total": MessageLookupByLibrary.simpleMessage("Всего"),
         "lastName": MessageLookupByLibrary.simpleMessage("Фамилия"),
         "logInToContinue":
             MessageLookupByLibrary.simpleMessage("Войдите чтобы продолжить"),
@@ -46,6 +47,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "loginWelcomeBack":
             MessageLookupByLibrary.simpleMessage("С возвращением !"),
+        "main_screan_all_products":
+            MessageLookupByLibrary.simpleMessage("Все продукты"),
+        "main_screan_get_new_product":
+            MessageLookupByLibrary.simpleMessage("Оформить новый продукт"),
+        "main_screan_no_data":
+            MessageLookupByLibrary.simpleMessage("Нет данных"),
         "minimumOfSixCharacters":
             MessageLookupByLibrary.simpleMessage("Минимум 6 символов"),
         "nameOfApp": MessageLookupByLibrary.simpleMessage("ConCards"),

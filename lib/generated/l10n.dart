@@ -319,6 +319,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Всего`
+  String get home_page_screan_total {
+    return Intl.message(
+      'Всего',
+      name: 'home_page_screan_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Нет данных`
+  String get main_screan_no_data {
+    return Intl.message(
+      'Нет данных',
+      name: 'main_screan_no_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Все продукты`
+  String get main_screan_all_products {
+    return Intl.message(
+      'Все продукты',
+      name: 'main_screan_all_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Оформить новый продукт`
+  String get main_screan_get_new_product {
+    return Intl.message(
+      'Оформить новый продукт',
+      name: 'main_screan_get_new_product',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
