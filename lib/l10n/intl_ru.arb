@@ -22,5 +22,8 @@
   "firstName": "Имя",
   "patronymic": "Отчество",
   "alreadyHaveAnAccount": "Уже есть аккаунт?",
-  "signUpLogIn": "Войти"
+  "signUpLogIn": "Войти",
+  "bottomNavigationBarHome": "Главная",
+  "bottomNavigatiomBarPerson": "Профиль",
+  "bottomNavigationBarHistory": "История"
 }

@@ -24,6 +24,12 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Уже есть аккаунт?"),
+        "bottomNavigatiomBarPerson":
+            MessageLookupByLibrary.simpleMessage("Профиль"),
+        "bottomNavigationBarHistory":
+            MessageLookupByLibrary.simpleMessage("История"),
+        "bottomNavigationBarHome":
+            MessageLookupByLibrary.simpleMessage("Главная"),
         "didnTCreateAnAccount":
             MessageLookupByLibrary.simpleMessage("Не создавали аккаунт?"),
         "enterCorrectEmail":
