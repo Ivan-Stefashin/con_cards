@@ -108,7 +108,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     style: TextButton.styleFrom(
                       backgroundColor: const Color(0x00000000),
                     ),
-                    child: Text(
+                    child: const Text(
                       'отмена',
                       style: TextStyle(
                         fontSize: 14,

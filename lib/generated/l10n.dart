@@ -359,6 +359,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Заполните поле`
+  String get signUp_enter_field {
+    return Intl.message(
+      'Заполните поле',
+      name: 'signUp_enter_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email не существует.`
+  String get email_address_not_authorized {
+    return Intl.message(
+      'Email не существует.',
+      name: 'email_address_not_authorized',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

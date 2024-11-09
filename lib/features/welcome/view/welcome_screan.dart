@@ -20,7 +20,6 @@ class WelcomeScrean extends StatelessWidget {
             flex: 1,
             child: Container(
               alignment: Alignment.centerLeft,
-              //color: Colors.blue,
               child: Row(
                 children: [
                   Container(

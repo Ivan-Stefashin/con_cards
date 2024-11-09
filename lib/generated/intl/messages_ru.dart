@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Главная"),
         "didnTCreateAnAccount":
             MessageLookupByLibrary.simpleMessage("Не создавали аккаунт?"),
+        "email_address_not_authorized":
+            MessageLookupByLibrary.simpleMessage("Email не существует."),
         "enterCorrectEmail":
             MessageLookupByLibrary.simpleMessage("Введите правильный email"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Введите email"),
@@ -64,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Создайте новый аккаунт"),
         "signUpHello": MessageLookupByLibrary.simpleMessage("Здравствуйте !"),
         "signUpLogIn": MessageLookupByLibrary.simpleMessage("Войти"),
+        "signUp_enter_field":
+            MessageLookupByLibrary.simpleMessage("Заполните поле"),
         "snackBarErrorMessageUnknownError":
             MessageLookupByLibrary.simpleMessage(
                 "Неизвестная ошибка попробуйте ещё раз."),

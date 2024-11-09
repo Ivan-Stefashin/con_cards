@@ -3,8 +3,8 @@ import 'package:con_cards/features/welcome/welcome.dart';
 import 'package:con_cards/features/widgets/widgets.dart';
 import 'package:con_cards/generated/l10n.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -37,26 +37,23 @@ class _LoginScreenState extends State<LoginScreen> {
     final navigator = Navigator.of(context);
 
     final isValid = formKey.currentState!.validate();
-
     if (!isValid) return;
 
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailTextInputController.text.trim(),
-        password: passwordTextInputController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      print(e.code);
+    String message = '';
 
-      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
-        SnackbarService.showSnackBar(
-            context, S.of(context).snackBarErrorMessageWrongEmail, true);
-        return;
+    try {
+      await Supabase.instance.client.auth.signInWithPassword(
+          email: emailTextInputController.text.trim(),
+          password: passwordTextInputController.text.trim());
+    } on AuthApiException catch (e) {
+      if (e.code == 'invalid_credentials') {
+        message = S.of(context).snackBarErrorMessageWrongEmail;
       } else {
-        SnackbarService.showSnackBar(
-            context, S.of(context).snackBarErrorMessageUnknownError, true);
-        return;
+        message = S.of(context).snackBarErrorMessageUnknownError;
       }
+
+      SnackbarService.showSnackBar(context, message, true);
+      return;
     }
     navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
   }
@@ -162,22 +159,22 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0x00000000),
-                            ),
-                            child: Text(
-                              S.of(context).forgotYourPassword,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromRGBO(0, 21, 170, 1),
-                              ),
-                            ),
-                          ),
-                        )
+                        // SizedBox(
+                        //   width: double.infinity,
+                        //   child: TextButton(
+                        //     onPressed: () {},
+                        //     style: TextButton.styleFrom(
+                        //       backgroundColor: const Color(0x00000000),
+                        //     ),
+                        //     child: Text(
+                        //       S.of(context).forgotYourPassword,
+                        //       style: const TextStyle(
+                        //         fontSize: 18,
+                        //         color: Color.fromRGBO(0, 21, 170, 1),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -212,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Text(
                 S.of(context).loginButtomBarRegistration,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(0, 21, 170, 1),

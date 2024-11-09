@@ -14,7 +14,7 @@ class MyBottomNavigationBar extends StatefulWidget {
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  _MyBottomNavigationBarState(final _pageController);
+  _MyBottomNavigationBarState(final pageController);
 
   static get _pageController => _pageController;
   int _currentIndex = 0;
