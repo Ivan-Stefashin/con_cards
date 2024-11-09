@@ -1,9 +1,9 @@
 import 'package:con_cards/features/login/login.dart';
+import 'package:con_cards/features/sign_up/view/sign_up_controller.dart';
 import 'package:con_cards/features/welcome/welcome.dart';
 import 'package:con_cards/features/widgets/widgets.dart';
 import 'package:con_cards/generated/l10n.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -47,24 +47,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     if (!isValid) return;
 
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailTextInputController.text.trim(),
-        password: passwordTextInputController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      print(e.code);
+    String message = '';
 
-      if (e.code == 'email-already-in-use') {
-        SnackbarService.showSnackBar(context,
-            S.of(context).theUserWithThisEmailHasAlreadyBeenRegistered, true);
-        return;
+    final result = await SignUpController().SignUp(
+        firstNameTextInputController.text.trim(),
+        lastNameTextInputController.text.trim(),
+        patronymicTextInputController.text.trim(),
+        emailTextInputController.text.trim(),
+        passwordTextInputController.text.trim());
+
+    if (result != 'ok') {
+      if (result == 'email-already-in-use') {
+        message = S.of(context).theUserWithThisEmailHasAlreadyBeenRegistered;
+      } else if (result == 'email_address_not_authorized') {
+        message = S.of(context).email_address_not_authorized;
       } else {
-        SnackbarService.showSnackBar(
-            context, S.of(context).snackBarErrorMessageUnknownError, true);
-        return;
+        message = S.of(context).snackBarErrorMessageUnknownError;
       }
+
+      SnackbarService.showSnackBar(context, message, true);
+      return;
     }
+
     navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
   }
 
@@ -113,13 +117,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 Expanded(
-                  flex: 4,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  flex: 2,
+                  child: ListView(
+                    //mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       TextFormField(
                         autocorrect: false,
                         controller: lastNameTextInputController,
+                        validator: (lastName) =>
+                            lastName != null && !lastName.isNotEmpty
+                                ? S.of(context).signUp_enter_field
+                                : null,
                         decoration: InputDecoration(
                           hintText: S.of(context).lastName,
                         ),
@@ -127,6 +135,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         autocorrect: false,
                         controller: firstNameTextInputController,
+                        validator: (firstName) =>
+                            firstName != null && !firstName.isNotEmpty
+                                ? S.of(context).signUp_enter_field
+                                : null,
                         decoration: InputDecoration(
                           hintText: S.of(context).firstName,
                         ),
@@ -134,6 +146,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextFormField(
                         autocorrect: false,
                         controller: patronymicTextInputController,
+                        validator: (patronymic) =>
+                            patronymic != null && !patronymic.isNotEmpty
+                                ? S.of(context).signUp_enter_field
+                                : null,
                         decoration: InputDecoration(
                           hintText: S.of(context).patronymic,
                         ),
@@ -231,7 +247,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               child: Text(
                 S.of(context).signUpLogIn,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                   color: Color.fromRGBO(0, 21, 170, 1),

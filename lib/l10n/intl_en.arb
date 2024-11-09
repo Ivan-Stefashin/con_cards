@@ -29,5 +29,7 @@
   "home_page_screan_total": "Всего",
   "main_screan_no_data": "Нет данных",
   "main_screan_all_products": "Все продукты",
-  "main_screan_get_new_product": "Оформить новый продукт"
+  "main_screan_get_new_product": "Оформить новый продукт",
+  "signUp_enter_field": "Заполните поле",
+  "email_address_not_authorized": "Email не существует."
 }

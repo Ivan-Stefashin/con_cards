@@ -12,16 +12,16 @@ class MainTextButton extends StatelessWidget {
     final theme = Theme.of(context);
     return TextButton(
       onPressed: () {},
+      style: ButtonStyle(
+        backgroundColor: theme.textButtonTheme.style?.backgroundColor,
+        //shape: ,
+      ),
       child: Text(
         text,
         style: const TextStyle(
           fontSize: 18,
           color: Colors.white,
         ),
-      ),
-      style: ButtonStyle(
-        backgroundColor: theme.textButtonTheme.style?.backgroundColor,
-        //shape: ,
       ),
     );
   }
