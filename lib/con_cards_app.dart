@@ -17,7 +17,7 @@ class ConCardsApp extends StatelessWidget {
       //locale: Locale('en'),
       theme: lightTeme,
       routes: routes,
-      //initialRoute: '/home',
+      initialRoute: '/home',
     );
   }
 }

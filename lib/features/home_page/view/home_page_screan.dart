@@ -28,6 +28,7 @@ class _HomePageScreanState extends State<HomePageScrean> {
 
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Row(
             children: [
