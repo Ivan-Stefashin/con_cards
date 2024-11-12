@@ -79,8 +79,8 @@ class ProductListScrean extends StatelessWidget {
                                     Text(
                                       products![index]['bank'],
                                       style: const TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w800,
                                       ),
                                     ),
                                     Text(
