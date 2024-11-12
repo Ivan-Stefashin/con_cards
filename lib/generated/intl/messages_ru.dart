@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("Имя"),
         "forgotYourPassword":
             MessageLookupByLibrary.simpleMessage("забыли пароль?"),
+        "history": MessageLookupByLibrary.simpleMessage("История"),
         "home_page_screan_total": MessageLookupByLibrary.simpleMessage("Всего"),
         "lastName": MessageLookupByLibrary.simpleMessage("Фамилия"),
         "logInToContinue":

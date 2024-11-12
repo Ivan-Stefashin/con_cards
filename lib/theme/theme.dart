@@ -41,4 +41,4 @@ final lightTeme = ThemeData(
         ),
       ),
     ),
-    textTheme: const TextTheme());
+    textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 25)));
