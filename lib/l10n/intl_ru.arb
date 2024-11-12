@@ -31,5 +31,6 @@
   "main_screan_all_products": "Все продукты",
   "main_screan_get_new_product": "Оформить новый продукт",
   "signUp_enter_field": "Заполните поле",
-  "email_address_not_authorized": "Email не существует."
+  "email_address_not_authorized": "Email не существует.",
+  "history": "История"
 }

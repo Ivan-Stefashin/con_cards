@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:con_cards/features/history/history.dart';
 import 'package:con_cards/features/main/main.dart';
 import 'package:con_cards/features/profile/profile.dart';
 
 import 'package:con_cards/generated/l10n.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -58,7 +56,6 @@ class _HomePageScreanState extends State<HomePageScrean> {
             MainScrean(),
             HistoryScrean(),
             ProfileScrean(),
-            TestSupaBase(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -76,8 +73,6 @@ class _HomePageScreanState extends State<HomePageScrean> {
               BottomNavigationBarItem(
                   label: S.of(context).bottomNavigatiomBarPerson,
                   icon: const Icon(Icons.person)),
-              const BottomNavigationBarItem(
-                  label: 'тест', icon: Icon(Icons.settings)),
             ]),
       ),
     );
@@ -89,44 +84,6 @@ class _HomePageScreanState extends State<HomePageScrean> {
       newIndex,
       duration: const Duration(microseconds: 300),
       curve: Curves.linear,
-    );
-  }
-}
-
-class TestSupaBase extends StatefulWidget {
-  const TestSupaBase({
-    super.key,
-  });
-
-  @override
-  State<TestSupaBase> createState() => _TestSupaBaseState();
-}
-
-class _TestSupaBaseState extends State<TestSupaBase> {
-  final _future = Supabase.instance.client.from('Users').select();
-  //.filter('email', 'eq', FirebaseAuth.instance.currentUser?.email); //SupabaseQueryBuilder(schema: )
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
-        future: _future,
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          final users = snapshot.data!;
-          return ListView.builder(
-            itemCount: users.length,
-            itemBuilder: ((context, index) {
-              final user = users[index];
-              return ListTile(
-                title: Text(user['first_name']),
-              );
-            }),
-          );
-        },
-      ),
     );
   }
 }

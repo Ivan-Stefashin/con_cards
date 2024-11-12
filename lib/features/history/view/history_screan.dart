@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:con_cards/generated/l10n.dart';
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HistoryScrean extends StatelessWidget {
   const HistoryScrean({super.key});
@@ -7,85 +10,123 @@ class HistoryScrean extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final supabase = Supabase.instance.client;
+
+    final user = supabase.auth.currentUser;
+
+    final stream = supabase
+        .from('History')
+        .stream(primaryKey: ['id']).eq('uid_user', user!.id);
+
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'История',
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
+        ),
+      ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.9,
         child: StreamBuilder(
-            stream:
-                FirebaseFirestore.instance.collection('History').snapshots(),
-            builder:
-                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              if (!snapshot.hasData) {
-                return const Text(
-                    'нет данных'); //S.of(context).main_screan_no_data);
+            stream: stream,
+            builder: (context, snapshot) {
+              bool noData = false;
+              if (snapshot.hasData == false) {
+                noData = true;
+              } else {
+                if (snapshot.data!.length == 0) {
+                  noData = true;
+                }
+              }
+              if (noData) {
+                return const Center(
+                  child: Text('нет данных'),
+                );
               }
 
-              return ListView.builder(
-                itemCount: snapshot.data?.docs.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Expanded(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      margin: const EdgeInsets.only(bottom: 3),
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(227, 114, 114, 1.0),
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(right: 5),
-                            child: Image.asset(
-                              'assets/images/card.png',
-                              width: 100,
-                              height: 70,
-                            ),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  snapshot.data!.docs[0].get('Bank'),
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+              final historis = snapshot.data;
+              return Column(
+                children: [
+                  Expanded(
+                    child: ListView.separated(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          child: Row(
+                            textDirection: TextDirection.ltr,
+                            children: [
+                              Expanded(
+                                // flex: 1,
+                                child: Icon(
+                                  Icons.add_card,
+                                  size:
+                                      MediaQuery.of(context).size.height * 0.05,
                                 ),
-                                Text(
-                                  snapshot.data!.docs[0].get('Title'),
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  snapshot.data!.docs[0].get('Number'),
-                                  style: const TextStyle(
-                                    color: Color.fromRGBO(204, 204, 204, 1.0),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 10),
-                            child: Text(
-                              '${snapshot.data!.docs[0].get('Balance')} Р.',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
                               ),
-                            ),
+                              Expanded(
+                                flex: 3,
+                                child: Table(
+                                  defaultVerticalAlignment:
+                                      TableCellVerticalAlignment.middle,
+                                  columnWidths: const {
+                                    0: FlexColumnWidth(1),
+                                    1: FlexColumnWidth(2)
+                                  },
+                                  children: [
+                                    TableRow(
+                                      children: [
+                                        const Text(
+                                          'Событие: ',
+                                        ),
+                                        Text(
+                                          historis![index]['type'],
+                                        ),
+                                      ],
+                                    ),
+                                    TableRow(
+                                      children: [
+                                        const Text(
+                                          'Дата: ',
+                                        ),
+                                        Text(
+                                          formatDate(
+                                              DateTime.parse(historis![index]
+                                                  ['created_at']),
+                                              [
+                                                yyyy,
+                                                '-',
+                                                mm,
+                                                '-',
+                                                dd,
+                                                ' ',
+                                                HH,
+                                                ':',
+                                                nn,
+                                              ]),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.arrow_forward_ios),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        );
+                      },
+                      separatorBuilder: (context, index) => const Divider(
+                        height: 1,
+                        color: Color.fromRGBO(163, 151, 151, 1),
                       ),
                     ),
-                  );
-                },
+                  ),
+                ],
               );
             }),
       ),
