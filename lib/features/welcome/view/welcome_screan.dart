@@ -94,7 +94,6 @@ class WelcomeScrean extends StatelessWidget {
                       child: Text(
                         S.of(context).signIn,
                         style: const TextStyle(
-                          //fontSize: 18,
                           color: Colors.white,
                         ),
                       ),

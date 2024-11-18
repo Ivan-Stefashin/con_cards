@@ -118,12 +118,6 @@ class MainScrean extends StatelessWidget {
           );
         });
 
-    // bankTextController.dispose();
-    // titleTextController.dispose();
-    // numberTextController.dispose();
-    // balanceTextController.dispose();
-    // balanceTextController.dispose();
-
     return result;
   }
 
@@ -238,7 +232,6 @@ class MainScrean extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: TextButton(
                 onPressed: () {
-                  // Navigator.pushNamed(context, '/productsList');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -302,7 +295,7 @@ class MainScrean extends StatelessWidget {
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.18,
-              color: Colors.yellow,
+              //color: Colors.yellow,
             ),
           ],
         ),

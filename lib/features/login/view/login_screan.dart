@@ -1,3 +1,4 @@
+import 'package:con_cards/features/login/view/login_controller.dart';
 import 'package:con_cards/features/sign_up/sign_up.dart';
 import 'package:con_cards/features/welcome/welcome.dart';
 import 'package:con_cards/features/widgets/widgets.dart';
@@ -41,16 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
     String message = '';
 
-    try {
-      await Supabase.instance.client.auth.signInWithPassword(
-          email: emailTextInputController.text.trim(),
-          password: passwordTextInputController.text.trim());
-    } on AuthApiException catch (e) {
-      if (e.code == 'invalid_credentials') {
-        message = S.of(context).snackBarErrorMessageWrongEmail;
-      } else {
-        message = S.of(context).snackBarErrorMessageUnknownError;
-      }
+    String result = await LogInController().SignIn(
+        emailTextInputController.text.trim(),
+        passwordTextInputController.text.trim());
+
+    if (result == 'invalid_credentials') {
+      message = S.of(context).snackBarErrorMessageWrongEmail;
+    } else {
+      message = S.of(context).snackBarErrorMessageUnknownError;
 
       SnackbarService.showSnackBar(context, message, true);
       return;

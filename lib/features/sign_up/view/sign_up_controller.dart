@@ -14,23 +14,9 @@ class SignUpController {
           'patronymic': patronymic,
         },
       );
-
-      // String id = Supabase.instance.client.auth.currentUser!.id;
-
-      // InsertUserInfo(firstName, lastName, patronymic, id);
     } on AuthApiException catch (e) {
       result = e.code!;
     }
     return result;
   }
-
-  // Future<void> InsertUserInfo(
-  //     final firstName, final lastName, final patronymic, String uid) async {
-  //   await Supabase.instance.client.from('Users').insert({
-  //     'first_name': firstName,
-  //     'last_name': lastName,
-  //     'patronymic': patronymic,
-  //     'uid': uid
-  //   });
-  // }
 }

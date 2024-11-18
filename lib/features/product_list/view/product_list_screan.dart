@@ -16,7 +16,6 @@ class ProductListScrean extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            // Navigator.popAndPushNamed(context, '/main');
             Navigator.of(context).pop(
               MaterialPageRoute(
                   builder: (BuildContext context) => (const MainScrean())),
