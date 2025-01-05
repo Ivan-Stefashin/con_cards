@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="857174c5-c85b-4e2d-8551-0ca07a9a1347">
+  <name>ОперацииСПродуктами</name>
+  <synonym>
+    <key>ru</key>
+    <value>Операции с продуктами</value>
+  </synonym>
+  <rootURL>products</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="6982d50d-0cb0-49ab-adbf-5354b37a6182">
+    <name>ШаблонURL</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон URL</value>
+    </synonym>
+    <template>/{id}</template>
+    <methods uuid="5877290a-744a-4326-b3d3-9f281dc889f4">
+      <name>ПучитьСписокПродуктов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пучить список продуктов</value>
+      </synonym>
+      <handler>ШаблонURLПучитьСписокПродуктов</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

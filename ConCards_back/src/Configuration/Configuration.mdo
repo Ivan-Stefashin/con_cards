@@ -38,5 +38,13 @@
     </synonym>
     <languageCode>ru</languageCode>
   </languages>
+  <subsystems>Subsystem.Общая</subsystems>
+  <httpServices>HTTPService.ОперацииСПродуктами</httpServices>
+  <catalogs>Catalog.Банки</catalogs>
+  <catalogs>Catalog.Пользователи</catalogs>
   <catalogs>Catalog.Продукты</catalogs>
+  <documents>Document.ОперацияСоСчетом</documents>
+  <enums>Enum.ВидыОперацийСоСчетами</enums>
+  <enums>Enum.ТипыПродуктов</enums>
+  <accumulationRegisters>AccumulationRegister.ОстаткиНаСчетах</accumulationRegisters>
 </mdclass:Configuration>

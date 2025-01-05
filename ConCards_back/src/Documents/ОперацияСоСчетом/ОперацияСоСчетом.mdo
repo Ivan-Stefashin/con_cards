@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7ee4d33c-bbbd-4206-b4d1-7b58d9dcba59">
+  <producedTypes>
+    <objectType typeId="bae7750d-e20c-4d8d-a649-ab09f163889a" valueTypeId="c97acbd3-7e4c-4e72-bb71-a74d960e2950"/>
+    <refType typeId="eb7be12c-22a6-4c68-90f4-18af0c4cf6ee" valueTypeId="679bb898-9bcc-4017-b12f-66945f2c9cc4"/>
+    <selectionType typeId="5c559ec8-7566-40b3-b4c2-5a39073cb5c8" valueTypeId="3135372b-996d-4cb8-81ec-4a0beb077ae4"/>
+    <listType typeId="6ae069b3-9518-49bc-944b-e2eec0957a14" valueTypeId="a4c3c2e2-3204-4f2f-bdd3-438ea71efa85"/>
+    <managerType typeId="1d8a086e-be2d-41e3-afe6-fbc4be1564de" valueTypeId="abc13f37-587a-41fe-a4cc-95ab121ace9d"/>
+  </producedTypes>
+  <name>ОперацияСоСчетом</name>
+  <synonym>
+    <key>ru</key>
+    <value>Операция со счетом</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.ОперацияСоСчетом.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <listPresentation>
+    <key>ru</key>
+    <value>Операции со счетами</value>
+  </listPresentation>
+  <numberType>String</numberType>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <registerRecords>AccumulationRegister.ОстаткиНаСчетах</registerRecords>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="38a8902a-8126-4a66-b0aa-72acf7e7c175">
+    <name>СчетСписания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет списания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Продукты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>Document.ОперацияСоСчетом.Attribute.Пользователь</field>
+    </choiceParameterLinks>
+    <choiceParameters>
+      <name>Отбор.ТипПродукта</name>
+      <value xsi:type="core:ReferenceValue">
+        <value>Enum.ТипыПродуктов.EnumValue.Счет</value>
+      </value>
+    </choiceParameters>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="5aca820a-0f16-4eeb-9974-ccd6bf4c45a8">
+    <name>СчетПоступления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет поступления</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Продукты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameters>
+      <name>Отбор.ТипПродукта</name>
+      <value xsi:type="core:ReferenceValue">
+        <value>Enum.ТипыПродуктов.EnumValue.Счет</value>
+      </value>
+    </choiceParameters>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="d0aa939b-cfeb-4601-ac40-18cb5784e944">
+    <name>Пользователь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Пользователь</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="178a054e-8e6b-419e-9ed6-d11879b4f625">
+    <name>ВидОперации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид операции</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыОперацийСоСчетами</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="1041ea4d-23e9-4adb-af50-1b7afe0318ca">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>8</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+</mdclass:Document>
